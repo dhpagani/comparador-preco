@@ -1,0 +1,16 @@
+{
+	"name": "comparador-preco",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/zsh"
+	},
+	"extensions": ["dbaeumer.vscode-eslint"], 
+	"forwardPorts": [8080],
+  "mounts": [
+    "source=dependencies,target=${containerWorkspaceFolder}/build/libs,type=volume",
+    "source=bashhistory,target=/commandhistory,type=volume",
+    "source=homessh,target=/root/.ssh/,type=volume" 
+  ]
+}
