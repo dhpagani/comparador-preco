@@ -1,0 +1,16 @@
+name: trigger jenkins job
+on:
+  release:
+    types: [released]
+jobs:
+  build:
+    name: invoke
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get parameters
+        id: read-params
+        uses: actions/github-script@v4
+        with:
+          script: |
+            console.log(context);
+            console.log(github);
